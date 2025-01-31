@@ -3,11 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="/css/styles.css">
     <title>DevsCrowd</title>
 </head>
 <body>
-    <h1 class="text-xl">HOla</h1>
+    <!-- HERO SECTION -->
+    <main id="hero" class="p-16 min-h-screen md:p-28">
+        <header class="font-noto font-light">
+            <!-- navbar -->
+            <nav class="navbar p-0" data-aos="fade-up">
+                <div class="navbar-start gap-3">
+                  <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4 6h16M4 12h8m-8 6h16" />
+                      </svg>
+                    </div>
+                    <ul
+                      tabindex="0"
+                      class="menu dropdown-content bg-black bg-opacity-40 rounded-lg my-5 p-2">
+                      <li><a href="#">Features</a></li>
+                      <li><a href="#">About</a></li>
+                      <li><a href="#" class="md:hidden">Log In</a></li>
+                      <li><a href="#" class="md:hidden">Sign Up</a></li>
+                    </ul>
+                  </div>
+                  <a href="#hero"><img src="img/dc-logo-white.png" class="w-36" alt="DevsCrowd Logo"></a>
+                </div>
+                <div class="navbar-center hidden lg:flex">
+                  <ul class="menu menu-horizontal px-1 text-white bg-white bg-opacity-10 rounded-full p-0">
+                    <li><a href="#" class="p-5 rounded-full">Features</a></li>
+                    <li><a href="#" class="p-5 rounded-full">About</a></li>
+                  </ul>
+                </div>
+                <div class="navbar-end gap-10">
+                    <ul class="hidden md:menu md:menu-horizontal items-center px-1 text-white gap-4">
+                        <li><a href="#" class="">Log In</a></li>
+                        <li><a href="#" class="btn rounded-full text-white bg-transparent border border-white font-light w-28 hover:bg-white hover:text-black">Sign Up</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <section id="content" class="flex flex-col justify-center pt-48 gap-6 lg:pt-32">
+                <h1 class="text-white text-5xl font-kanit font-semibold md:text-6xl xl:w-4/5" data-aos="fade-right">Your Path to Tech Success Starts Here</h1>
+                <p class="text-white pt-4 font-noto font-thin md:text-xl lg:w-4/5 xl:w-1/2" data-aos="fade-right">
+                    Join a vibrant community of tech enthusiasts.
+                    Connect with like-minded professionals, and
+                    share your journey to success.
+                </p>
+                <a href="#" data-aos-duration="3000" data-aos="fade-up" class="btn text-black uppercase font-hanken font-light bg-white w-3/4 mt-12 border rounded-full hover:bg-white hover:border-white hover:text-white hover:bg-transparent md:w-1/2 xl:w-96">Join this community</a>
+        </section>
+    </main>
 
+    <!-- AOS LIBRARY -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>
