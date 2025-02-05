@@ -6,10 +6,19 @@ module.exports = {
   ],
   theme: {
     extend: {
+    //breakpoints for small, medium, large and xlarge screens
+      screens: {
+        sm: "600px",
+        md: "768px",
+        lg: "992px",
+        xl: "1200px",
+        xxl: "1500px"
+      },
       colors: {
         bgWhite: '#f8f8f8',
         gray: '#676767',
         lightGray: '#d9d9d9', 
+        grayHover: '#9b9b9b'
       },
       fontFamily: {
         hanken: ['Hanken Grotesk', 'sans-serif'],

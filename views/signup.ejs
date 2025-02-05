@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Signup Page</title>
+</head>
+<body>
+    <div class="bg-white p-4 min-h-screen w-full flex">
+        <main id="signup" class="w-full flex rounded-xl md:flex-col lg:flex-row">
+            <!-- DECORATION IMAGE -->
+            <div id="deco-signup" class=" hidden basis-3/4 md:flex md:rounded-t-xl lg:rounded-l-xl lg:rounded-tr-none"></div>
+            <!-- CONTENT -->
+            <div class="w-full flex items-center">
+                <section id="content" class="w-full max-w-xxl p-12 flex flex-col gap-6 lg:p-20">
+                    <a href="/" class="self-end "><img src="img/dc-logo-white.png" class="pb-4 w-28" alt="DevsCrowd Logo"></a>
+                    <h1 class="font-kanit font-light text-2xl text-white">Create your account</h1>
+                    <!-- Sign up form -->
+                    <form action="/signup" method="POST" class="flex flex-col gap-6 w-full">
+                        <div class="flex flex-col gap-6 md:flex-row">
+                            <input
+                             type="text"
+                             placeholder="Full Name"
+                             name="fullName"
+                             required
+                             class="input input-bordered input-md border-gray bg-transparent w-full font-hanken font-light transition-all transition-duration-300 focus:text-white focus:border-white"
+                            />
+                            <input
+                             type="text"
+                             placeholder="Username"
+                             name="userName"
+                             class="input input-bordered input-md border-gray bg-transparent w-full font-hanken font-light transition-all transition-duration-300 focus:text-white focus:border-white"
+                            />
+                        </div>
+                        <input
+                          type="email"
+                          placeholder="Email"
+                          name="email"
+                          class="input input-bordered input-md border-gray bg-transparent w-full font-hanken font-light transition-all transition-duration-300 focus:text-white focus:border-white"
+                        />
+                        <input
+                          type="password"
+                          placeholder="Password"
+                          name="password"
+                          class="input input-bordered input-md border-gray bg-transparent w-full font-hanken font-light transition-all transition-duration-300 focus:text-white focus:border-white"
+                        />
+                        <input
+                          type="password"
+                          placeholder="Confirm Password"
+                          name="confirmPassword"
+                          class="input input-bordered input-md border-gray bg-transparent w-full font-hanken font-light transition-all transition-duration-300 focus:text-white focus:border-white"
+                        />
+                        <input 
+                          type="submit"
+                          value="Sign Up"
+                          class="btn bg-gray uppercase text-white font-hanken font-light hover:bg-grayHover"
+                        />
+                        <% if (locals.messages.errors) { %>
+                            <div>
+                              <% messages.errors.forEach( el => { %>
+                                  <div class="error-message"><%= el.msg %></div>
+                              <% }) %>    
+                            </div>
+                        <% } %>
+                    </form>
+                    <!-- Sign up alternatives -->
+                    <div class="divider">Or sign up with</div>
+                    <ul class="flex flex-col w-full gap-3 justify-center md:justify-start">
+                        <li class="btn bg-white rounded-lg p-2 hover:bg-lightGray"><a href="#"><img src="img/google.png" class="w-8" alt="Signup with Google"></a></li>
+                        <li class="btn bg-white rounded-lg p-2 hover:bg-lightGray"><a href="#"><img src="img/github.png" class="w-8" alt="Signup with Github"></a></li>
+                    </ul>
+                    <!-- Already enrrolled -->
+                    <span class="text-center font-hanken font-light text-lightGray">Already have an account? <a href="/login" class="underline transition-all transition-duration-300 hover:text-white">Log In</a></span>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
