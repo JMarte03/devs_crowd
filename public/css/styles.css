@@ -1478,6 +1478,12 @@ html{
   margin-top: 0;
 }
 
+.mockup-phone .display{
+  overflow: hidden;
+  border-radius: 40px;
+  margin-top: -25px;
+}
+
 .mockup-browser .mockup-browser-toolbar{
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
@@ -1807,6 +1813,10 @@ html{
   width: 9rem;
 }
 
+.w-4{
+  width: 1rem;
+}
+
 .w-5{
   width: 1.25rem;
 }
@@ -1835,6 +1845,10 @@ html{
   flex-basis: 75%;
 }
 
+.cursor-pointer{
+  cursor: pointer;
+}
+
 .flex-row{
   flex-direction: row;
 }
@@ -1857,6 +1871,10 @@ html{
 
 .justify-center{
   justify-content: center;
+}
+
+.justify-between{
+  justify-content: space-between;
 }
 
 .gap-1{
@@ -1913,6 +1931,10 @@ html{
 
 .border{
   border-width: 1px;
+}
+
+.border-l-4{
+  border-left-width: 4px;
 }
 
 .border-gray{
@@ -1994,6 +2016,10 @@ html{
   padding: 7rem;
 }
 
+.p-3{
+  padding: 0.75rem;
+}
+
 .p-4{
   padding: 1rem;
 }
@@ -2021,10 +2047,6 @@ html{
 
 .pt-48{
   padding-top: 12rem;
-}
-
-.text-left{
-  text-align: left;
 }
 
 .text-center{

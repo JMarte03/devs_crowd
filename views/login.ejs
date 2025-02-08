@@ -17,7 +17,23 @@
                 <section id="content" class="w-full max-w-xxl p-12 flex flex-col gap-6 lg:p-20">
                     <a href="/" class="self-end "><img src="img/dc-logo-white.png" class="pb-4 w-28" alt="DevsCrowd Logo"></a>
                     <h1 class="font-kanit font-light text-2xl text-white">Welcome back</h1>
-                    <span class="text-left text-sm font-hanken font-light text-lightGray">Please, enter your account details</span>
+                    <% if (locals.messages.errors) { %>
+                        <div>
+                            <% messages.errors.forEach( el => { %>
+                                <div class="flex justify-between items-center border-l-4 border-gray bg-bgWhite p-3">
+                                    <p class="text-gray font-hanken font-light"><%= el.msg %></p>
+                                    <img src="/img/close.png" class="close-err w-4 cursor-pointer" alt="close button">
+                                </div>
+                            <% }) %>    
+                        </div>
+                    <% } %>
+                    <% if (locals.messages.info) { %>
+                        <div>
+                            <% messages.info.forEach( el => { %>
+                                <div class="error-message"><%= el.msg %></div>
+                            <% }) %>    
+                        </div>
+                    <% } %>
                     <!-- Sign up form -->
                     <form action="/login" method="POST" class="flex flex-col gap-6 w-full">
                         <input
@@ -38,31 +54,18 @@
                           class="btn bg-gray uppercase text-white font-hanken font-light hover:bg-grayHover"
                         />
                     </form>
-                    <% if (locals.messages.errors) { %>
-                        <div>
-                            <% messages.errors.forEach( el => { %>
-                                <div class="error-message"><%= el.msg %></div>
-                            <% }) %>    
-                        </div>
-                    <% } %>
-                    <% if (locals.messages.info) { %>
-                        <div>
-                            <% messages.info.forEach( el => { %>
-                                <div class="error-message"><%= el.msg %></div>
-                            <% }) %>    
-                        </div>
-                    <% } %>
                     <!-- Sign up alternatives -->
                     <div class="divider">Or login with</div>
-                    <ul class="flex flex-col w-full gap-3 justify-center md:justify-start">
-                        <li class="btn bg-white rounded-lg p-2 hover:bg-lightGray"><a href="#"><img src="img/google.png" class="w-8" alt="Signup with Google"></a></li>
-                        <li class="btn bg-white rounded-lg p-2 hover:bg-lightGray"><a href="#"><img src="img/github.png" class="w-8" alt="Signup with Github"></a></li>
-                    </ul>
+                    <section class="flex flex-col w-full gap-3 justify-center md:justify-start">
+                        <a href="/google" class="btn bg-white rounded-lg p-2 hover:bg-lightGray"><img src="img/google.png" class="w-8" alt="Login with Google"></a>
+                        <a href="#" class="btn bg-white rounded-lg p-2 hover:bg-lightGray"><img src="img/github.png" class="w-8" alt="Login with Github"></a>
+                    </section>
                     <!-- Already enrrolled -->
                     <span class="text-center font-hanken font-light text-lightGray">Don't have an account yet? <a href="/signup" class="underline transition-all transition-duration-300 hover:text-white">Sign Up</a></span>
                 </section>
             </div>
         </main>
     </div>
+    <script src="/js/auth.js"></script>
 </body>
 </html>

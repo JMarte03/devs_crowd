@@ -2,6 +2,7 @@ const express = require('express'); // Using express
 const app = express(); // app is our express application
 const mongoose = require("mongoose"); // Using mongoose
 const passport = require("passport"); // Using passport
+// const googleAuth = require("passport-google-oauth20").Strategy
 const session = require("express-session"); // Using express-session
 const MongoStore = require("connect-mongo"); // Using connect-mongo
 const methodOverride = require("method-override"); // Using method-override
@@ -49,14 +50,15 @@ app.use(
 );
 
 // Passport middleware
-app.use(passport.initialize())
-app.use(passport.session())
+app.use(passport.initialize()) // To initialize passport
+app.use(passport.session()) // To make sure it integrates with session
 
 //Use flash messages for errors, info, ect...
 app.use(flash());
 
 // Setup Routes For Which The Server Is Listening
 app.use("/", mainRoutes);
+// app.use('/auth', googleRoutes)
 // app.use("/post", postRoutes);
 
 // Server Running

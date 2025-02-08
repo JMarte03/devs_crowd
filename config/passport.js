@@ -1,5 +1,5 @@
 const LocalStrategy = require('passport-local').Strategy
-// const mongoose = require('mongoose')
+const GoogleStrategy = require('passport-google-oauth20').Strategy
 const User = require('../models/User')
 
 module.exports = function (passport) {
@@ -36,4 +36,29 @@ module.exports = function (passport) {
       done(err, null)
     }
   })
+
+  passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: 'http://localhost:2121/google/callback',
+    passReqToCallback: true,
+    scope: ["profile", "email"] 
+  },
+  async (req, accessToken, refreshToken, profile, done) => {
+    try {
+      let user = await User.findOne({ googleId: profile.id })
+      if (!user) {
+        user = new User({
+          fullName: profile.displayName,
+          email: profile.emails[0].value,
+          googleId: profile.id,
+          userName: profile.emails[0].value.split('@')[0] // Create a username from email
+        })
+        await user.save()
+      }
+      return done(null, user)
+    } catch (err) {
+      return done(err, null)
+    }
+  }))
 }

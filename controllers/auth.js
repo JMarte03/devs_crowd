@@ -131,5 +131,17 @@ module.exports = {
       });
     });
   },
+
+  // GOOGLE AUTHENTICATION
+  
+  // signup
+  signupGoogle: passport.authenticate("google", { scope: ["profile", "email"] }),
+  // login
+  loginGoogle: passport.authenticate("google", {
+    failureRedirect: "/login", // Redirect to login on failure
+    successRedirect: "/profile", // Redirect to profile on success
+  }),
+
 };
+
 
