@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+  </head>
+  <body>
+    
+    <!-- Sidebar -->
+    <aside
+      id="hs-sidebar-footer"
+      class="hs-overlay [--auto-close:lg] lg:block lg:translate-x-0 w-64 hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform h-full hidden fixed top-0 start-0 bottom-0 z-[60] bg-white"
+      role="dialog"
+      tabindex="-1"
+      aria-label="Sidebar"
+    >
+      <div class="relative flex flex-col h-full max-h-full">
+        <!-- Header -->
+        <header class="p-8 flex justify-between items-center">
+          <a class="flex-none" href="#">
+            <img class="w-28 lg:w-36" src="img/dc-logo-black.png" alt="">
+          </a>
+
+          <div class="lg:hidden">
+            <!-- Close Button -->
+            <button
+              type="button"
+              class="flex justify-center items-center gap-x-3 size-6 bg-white border border-gray-200 text-sm text-gray-600 transition-all duration-100 ease-in-out hover:border-white hover:text-white hover:bg-black rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-black"
+              data-hs-overlay="#hs-sidebar-footer"
+            >
+              <svg
+                class="shrink-0 size-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M18 6 6 18" />
+                <path d="m6 6 12 12" />
+              </svg>
+              <span class="sr-only">Close</span>
+            </button>
+            <!-- End Close Button -->
+          </div>
+        </header>
+        <!-- End Header -->
+
+        <!-- Body -->
+        <nav
+          class="h-full overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300"
+        >
+          <div
+            class="hs-accordion-group pt-4 pb-0 px-8 w-full flex flex-col flex-wrap"
+            data-hs-accordion-always-open
+          >
+            <ul class="space-y-1">
+              <li>
+                <a
+                  class="flex items-center gap-x-3 py-2 px-2.5 bg-gray-100 font-hanken font-light text-sm text-black rounded-lg transition-all duration-100 ease-in-out hover:bg-bgWhite"
+                  href="blog"
+                >
+                  <i class='bx-xs bx bxs-home-alt-2'></i>
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  class="flex items-center gap-x-3 py-2 px-2.5 bg-gray-100 font-hanken font-light text-sm text-black rounded-lg transition-all duration-100 ease-in-out hover:bg-bgWhite"
+                  href="profile"
+                >
+                  <i class='bx bxs-user'></i>
+                  Profile
+                </a>
+              </li>
+              <li>
+                <a
+                  class="flex items-center gap-x-3 py-2 px-2.5 bg-gray-100 font-hanken font-light text-sm text-black rounded-lg transition-all duration-100 ease-in-out hover:bg-bgWhite"
+                  href="news"
+                >
+                  <i class='bx bxs-news'></i>
+                  News
+                </a>
+              </li>
+              <li>
+                <a
+                  class="flex items-center gap-x-3 py-2 px-2.5 bg-gray-100 font-hanken font-light text-sm text-black rounded-lg transition-all duration-100 ease-in-out hover:bg-bgWhite"
+                  href="resources"
+                >
+                  <i class='bx bxs-book-alt' ></i>
+                  Resources
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Footer -->
+        <footer class="p-8">
+          <div class="divider"></div>
+          <div class="flex justify-between items-center hs-dropdown [--strategy:absolute] [--auto-close:inside] relative w-full inline-flex">
+            <!-- Account -->
+            <div class="flex items-center gap-2">
+              <img class="shrink-0 size-8 rounded-full" src="img/placeholder.png" alt="Avatar" />
+              <p class="font-hanken text-sm text-gray">Mia Hudson</p>
+            </div>
+            <!-- LOG OUT -->
+            <a href="logout" title="log out" class="flex items-center justify-center p-3 rounded-full transition-all duration-100 hover:bg-bgWhite hover:bg-opacity-50">
+              <i class='bx bx-log-out'></i>
+            </a>  
+          </div>
+        </footer>
+      </div>
+    </aside>
+    <script src="js/preline.js"></script>
+  </body>
+</html>

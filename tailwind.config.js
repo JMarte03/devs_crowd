@@ -18,7 +18,8 @@ module.exports = {
         bgWhite: '#f8f8f8',
         gray: '#676767',
         lightGray: '#d9d9d9', 
-        grayHover: '#9b9b9b'
+        grayHover: '#9b9b9b',
+        darkGray: '#010101'
       },
       fontFamily: {
         hanken: ['Hanken Grotesk', 'sans-serif'],
@@ -29,6 +30,7 @@ module.exports = {
   },
   plugins: [
     require('daisyui'),
+    require('preline/plugin'),
   ],
 }
 

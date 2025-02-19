@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>DevsCrowd</title>
 </head>
 <body>
-    <h1>BLOG</h1>
+   <!-- HEADER -->
+    <div class="bg-bgWhite min-h-screen w-full flex p-4 gap-4">
+        <div class="sidebar">
+            <%- include('partials/sidebar') -%>
+        </div>
+        <main class="lg:ml-64">
+            <!-- Navigation Toggle -->
+            <div class="lg:hidden">
+                <button
+                type="button"
+                class="p-3 inline-flex justify-center items-center gap-x-2 bg-white rounded-lg align-middle hover:bg-opacity-50 focus:outline-none focus:bg-gray-900"
+                aria-haspopup="dialog"
+                aria-expanded="false"
+                aria-controls="hs-sidebar-footer"
+                aria-label="Toggle navigation"
+                data-hs-overlay="#hs-sidebar-footer"
+                >
+                <i class="bx bx-menu"></i>
+                </button>
+            </div>
+            <h1>BLOG VIEW</h1> 
+        </main>
+        
+    </div>
+   <!-- FOOTER -->
 </body>
 </html>

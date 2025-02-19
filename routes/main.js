@@ -6,6 +6,8 @@ const homeController = require("../controllers/home");
 const authController = require("../controllers/auth");
 const profileController = require("../controllers/profile")
 const postsController = require("../controllers/posts")
+const newsController = require("../controllers/news")
+const resourcesController = require("../controllers/resources")
 const passport = require('passport')
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
@@ -22,6 +24,8 @@ router.post("/login", authController.postLogin);
 // Other views
 router.get("/profile", ensureAuth, profileController.getProfile);
 router.get("/blog", ensureAuth, postsController.getBlog);
+router.get("/news", ensureAuth, newsController.getNews);
+router.get("/resources", ensureAuth, resourcesController.getResources);
 
 // Google OAuth Login
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }))
@@ -33,6 +37,17 @@ router.get('/google/callback',
     res.redirect('/profile')
   }
 )
+
+// GitHub OAuth Login
+router.get('/github', passport.authenticate('github', { scope: [ 'user:email' ] }));
+
+  
+// GitHub OAuth Callback
+router.get('/github/callback', passport.authenticate('github', { failureRedirect: '/login' }),
+  (req, res) => {
+    res.redirect('/profile');
+  }
+);
 
 // Logout
 router.get('/logout', (req, res, next) => {
