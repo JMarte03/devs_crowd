@@ -44,3 +44,10 @@
   background-size: cover;
   background-position: center;
 }
+
+#banner {
+  background-image: url("/img/cta-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

@@ -4,32 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
-    <title>Profile Jesimiel Marte</title>
+    <title>DevsCrowd</title>
 </head>
 <body>
-   <!-- HEADER -->
-    <div class="bg-bgWhite min-h-screen w-full flex p-4 gap-4">
+   <!-- Main Container -->
+    <div class="bg-bgWhite min-h-screen w-full flex lg:px-4 lg:gap-4">
+        <!-- SIDEBAR -->
         <div class="sidebar">
             <%- include('partials/sidebar') -%>
         </div>
-        <main class="lg:ml-64">
-            <!-- Navigation Toggle -->
-            <div class="lg:hidden">
-                <button
-                type="button"
-                class="p-3 inline-flex justify-center items-center gap-x-2 bg-white rounded-lg align-middle hover:bg-opacity-50 focus:outline-none focus:bg-gray-900"
-                aria-haspopup="dialog"
-                aria-expanded="false"
-                aria-controls="hs-sidebar-footer"
-                aria-label="Toggle navigation"
-                data-hs-overlay="#hs-sidebar-footer"
-                >
-                <i class="bx bx-menu"></i>
-                </button>
-            </div>
-            <h1>PROFILE VIEW</h1> 
-        </main>
-        
+        <!-- MAIN CONTENT -->
+        <main class="lg:ml-64 w-full">
+            <!-- PROFILE INFO -->
+            <section class="profile-info">
+                <!-- BANNER -->
+                <section id="banner" class="h-52 p-4 flex justify-between lg:justify-end">
+                    <!-- Navigation Toggle -->
+                    <div class="lg:hidden">
+                        <button
+                        type="button"
+                        class="p-3 inline-flex justify-center items-center gap-x-2 bg-bgWhite bg-opacity-10 rounded-lg align-middle transition-all duration-100 hover:bg-opacity-30 focus:outline-none focus:bg-gray-900"
+                        aria-haspopup="dialog"
+                        aria-expanded="false"
+                        aria-controls="hs-sidebar-footer"
+                        aria-label="Toggle navigation"
+                        data-hs-overlay="#hs-sidebar-footer"
+                        >
+                        <i class="bx bx-menu text-white"></i>
+                        </button>
+                    </div>
+                    <!-- Edit Profile button -->
+                    <button class="btn shadow-none text-white font-hanken font-light border-0 bg-transparent transition-all duration-75 ease-in-out hover:bg-opacity-10">
+                        <i class='bx bxs-edit-alt'></i>
+                        Edit Profile 
+                    </button>
+                </section>
+
+                <!--  CONTENT -->
+                <div id="content" class="w-full p-8 bg-white lg:rounded-b-lg">
+                    <!-- Overview -->
+                    <section id="overview" class="w-full flex justify-between items-center">
+                        <img src="/img/me.png" class="-mt-28 shrink-0 size-32 rounded-full" alt="placeholder image">
+                        <div id="overview-info" class="flex -ml-4 gap-px">
+                            <p class="text-black font-hanken font-light lg:text-lg"><span class="font-medium">10</span> Followers</p>
+                            <div class="divider divider-horizontal"></div>
+                            <p class="text-black font-hanken font-light lg:text-lg"><span class="font-medium">20</span> Posts</p>
+                        </div>
+                        <form action="" method="">
+                            <button title="Follow" class="text-white btn shadow-none rounded-lg flex items-center hover:bg-transparent hover:text-black">
+                                <i class='bx bxs-user-plus'></i>
+                                <p class="hidden font-hanken font-light md:block">Follow</p>
+                            </button>
+                        </form>
+                    </section>
+                    
+                    <!-- Bio -->
+                    <section id="bio" class="pt-8 space-y-6">
+                        <h1 class="text-3xl text-black font-gruppo font-bold">Jesimiel Marte</h1>
+                        <h2 class="text-black font-hanken font-light">| Fullstack Web Developer</h2>
+                        <!-- separator -->
+                        <div class="divider"></div>
+                        <p class="text-sm text-gray font-hanken font-light italic">This a very long bio for a project I haven't even started this is a long bio for a project ...</p>
+                        <ul class="flex flex-col gap-y-2 gap-x-8 font-hanken text-sm font-light md:flex-row">
+                            <li class="flex gap-x-2 items-center">
+                                <i class='bx bxs-map'></i>
+                                <span>Santo Domingo, Dominican Republic</span>
+                            </li>
+                            <li class="flex gap-x-2 items-center"> 
+                                <i class='bx bxs-envelope'></i>
+                                <a href="mailto:jesimielmarte@gmail.com" class="hover:underline hover:text-grayHover">jesimielmarte@gmail.com</a>
+                            </li>
+                        </ul>
+                        <!-- separator -->
+                        <div class="divider lg:hidden"></div>
+                    </section>
+                   
+                </div>
+            </section>
+            
+            <!-- USER POSTS -->
+            <section id="user-posts" class="mb-4 p-8 bg-white lg:mt-4 lg:rounded-t-lg">
+                <!-- Header -->
+                <div class="flex justify-between items-center">
+                    <h2 class="font-gruppo font-bold text-black text-xl">Your Posts</h2>
+                    <button class="btn px-8 bg-transparent border shadow-none text-black font-hanken font-light transition-all duration-100 ease-in-out hover:text-white">
+                        <i class='bx bx-plus-circle' ></i>
+                        Create New Post 
+                    </button>
+                </div>
+               
+                <!-- Posts --> 
+                <section id="posts" class="mt-8">
+                    <div class="post flex flex-col gap-y-5">
+                        <!-- post date -->
+                        <span class="text-gray font-hanken font-light text-sm">12/22/2022</span>
+                        <!-- post image -->
+                        <img src="/img/post-placeholder.png" class="h-36 w-full object-cover rounded-t-lg"  alt="placeholder image">
+                        <div class="flex justify-between items-center">
+                            <!-- post title -->
+                            <h3 class="font-gruppo font-bold text-black text-2xl">A title for this post</h3>
+                            <!-- post category -->
+                            <span class="flex items-center gap-2 font-hanken font-light text-sm text-grayHover">
+                                <i class='bx bxs-circle'></i>
+                                Experiences
+                            </span>
+                        </div>
+                        <!-- post description -->
+                        <p class="text-black font-hanken font-light text-md">
+                            Lorem ipsum dolor sit amet lorem ipsum dolor sit 
+                            amet lorem ipsum dolor sit amet lorem ipsum dolor 
+                            sit amet... <a href="#" class="underline text-gray hover:text-grayHover">See post</a>
+                        </p>
+                        <!-- likes and comments -->
+                        <div class="flex gap-6">
+                            <form action="" method="">
+                                <button title="Like" class="btn p-0 bg-transparent shadow-none border-none text-gray font-hanken font-light text-sm hover:text-grayHover hover:bg-transparent">
+                                    <i class='bx bxs-heart text-lightGray'></i>
+                                    <span>34</span>
+                                </button>
+                            </form>
+                            <a href="#" class="btn p-0 bg-transparent shadow-none border-none text-gray font-hanken font-light text-sm hover:text-grayHover hover:bg-transparent">
+                                <i class='bx bxs-comment text-lightGray'></i>
+                                <span>12</span>
+                            </a>
+                        </div>
+                        <!-- separator -->
+                        <div class="divider"></div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- FOOTER -->
+            <%- include('partials/footer') -%>
+        </main>    
     </div>
    <!-- FOOTER -->
 </body>
