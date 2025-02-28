@@ -7,7 +7,15 @@ const UserSchema = new mongoose.Schema({
   email: { type: String, unique: true, sparse: true },
   password: { type: String },
   googleId: { type: String, unique: true, sparse: true },
-  githubId: { type: String, unique: true, sparse: true }
+  githubId: { type: String, unique: true, sparse: true },
+  avatar: { type: String, required: false, default: 'https://res.cloudinary.com/dmc0lch9y/image/upload/v1740603341/user_k9egpc.png'},
+  banner: { type: String, required: false, default: 'https://res.cloudinary.com/dmc0lch9y/image/upload/v1740603869/devscrowd/xxhsr0gangwjvdwa9b4p.png'},
+  title: { type: String, required: false},
+  city: { type: String, required: false },
+  country: { type: String, required: false },
+  bio: { type: String, required: false},
+  following: { type: [mongoose.Schema.Types.ObjectId], ref: 'User', required: false},
+  followers: { type: [mongoose.Schema.Types.ObjectId], ref: 'User', required: false},
 })
 
 

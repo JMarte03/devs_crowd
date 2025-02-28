@@ -3,6 +3,8 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const GitHubStrategy = require("passport-github2").Strategy;
 const User = require("../models/User");
 
+require("dotenv").config({ path: "./config/.env" });
+
 module.exports = function (passport) {
   // LOCAL STRATEGY
   passport.use(

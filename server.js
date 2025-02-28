@@ -2,7 +2,6 @@ const express = require('express'); // Using express
 const app = express(); // app is our express application
 const mongoose = require("mongoose"); // Using mongoose
 const passport = require("passport"); // Using passport
-// const googleAuth = require("passport-google-oauth20").Strategy
 const session = require("express-session"); // Using express-session
 const MongoStore = require("connect-mongo"); // Using connect-mongo
 const methodOverride = require("method-override"); // Using method-override
