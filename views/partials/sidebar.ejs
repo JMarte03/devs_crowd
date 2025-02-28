@@ -111,8 +111,8 @@
           <div class="flex justify-between items-center hs-dropdown [--strategy:absolute] [--auto-close:inside] relative w-full inline-flex">
             <!-- Account -->
             <div class="flex items-center gap-2">
-              <img class="shrink-0 size-8 rounded-full" src="img/me.png" alt="Avatar" />
-              <p class="font-hanken text-sm text-gray">Jesimiel Marte</p>
+              <img class="shrink-0 size-8 rounded-full" src="<%= user.avatar %>" alt="Avatar" />
+              <a href="profile" class="font-hanken text-sm text-gray"><%= user.fullName %></a>
             </div>
             <!-- LOG OUT -->
             <a href="logout" title="log out" class="flex items-center justify-center p-3 rounded-full transition-all duration-100 hover:bg-bgWhite hover:bg-opacity-50">

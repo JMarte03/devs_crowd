@@ -19,7 +19,7 @@
             <section class="profile-info">
                 <!-- BANNER -->
                  <!-- style="background-image: url(<%- user.banner %>);" -->
-                <section id="banner" style="background-image: url(<%- user.banner %>);" class="h-52 p-4 flex justify-between lg:justify-end">
+                <section id="banner-picture" style="background-image: url(<%- user.banner %>);" class="h-52 p-4 flex justify-between lg:justify-end">
                     <!-- Navigation Toggle -->
                     <div class="lg:hidden">
                         <button
@@ -48,10 +48,10 @@
                                 <button class="flex items-center btn btn-circle bg-white btn-ghost text-xl text-black font-gruppo font-light">x</button>
                             </form>
                         </div>
-                        <form action="">
+                        <form action="/profile/editProfile/?_method=PUT" enctype="multipart/form-data" method="POST" class="flex flex-col gap-y-8">
                             <!-- Profile picture (avatar) -->
                             <div class="flex items-center gap-x-5">
-                                <img src="<%= user.avatar %>" class="shrink-0 size-24 rounded-full" alt="placeholder image">
+                                <img src="<%= user.avatar %>" id="profile-preview" class="shrink-0 size-24 rounded-full" alt="placeholder image">
                                 <div class="space-y-3">
                                     <label for="avatar" class="font-hanken font-light text-black">Profile picture:</label>
                                     <input id="avatar" type="file" name="avatar" class="font-hanken font-light text-black file-input bg-bgWhite rounded-md w-full max-w-xs file:bg-gray file:text-white file:font-light" />
@@ -66,9 +66,33 @@
                                 </div>
                                 <div class="flex items-center flex-row w-full gap-y-2 md:flex-col md:items-start">
                                     <label for="title" class="w-1/5 font-hanken font-light text-black md:w-full">Title:</label>
-                                    <input type="text" class="input bg-bgWhite w-4/5 text-black font-hanken font-light md:w-full" name="title" value="">
+                                    <input type="text" class="input bg-bgWhite w-4/5 text-black font-hanken font-light md:w-full" name="title" value="<%= user.title %>">
                                 </div>
                             </div>
+                            <!-- Banner picture -->
+                            <div class="flex items-center flex-row w-full gap-y-2 md:flex-col md:items-start">
+                                <label for="banner" class="w-1/5 font-hanken font-light text-black md:w-full">Banner:</label>
+                                <input id="banner" type="file" name="banner" class="font-hanken w-4/5 font-light text-black file-input bg-bgWhite rounded-md file:bg-gray file:text-white file:font-light md:w-full" />
+                            </div>
+                            <!-- City and Country -->
+                            <div class="w-full flex flex-col gap-4 justify-between items-center md:flex-row">
+                                <div class="flex items-center flex-row w-full gap-y-2 md:flex-col md:items-start">
+                                    <label for="country" class="w-1/5 font-hanken font-light text-black md:w-full">Country: <span class="text-error"></span></label>
+                                    <input type="text" id="country" class="input bg-bgWhite w-4/5 text-black font-hanken font-light md:w-full" name="country" value="<%= user.country %>">
+                                </div>
+                                <div class="flex items-center flex-row w-full gap-y-2 md:flex-col md:items-start">
+                                    <label for="city" class="w-1/5 font-hanken font-light text-black md:w-full">City:</label>
+                                    <input type="text" id="city" class="input bg-bgWhite w-4/5 text-black font-hanken font-light md:w-full" name="city" value="<%= user.city %>">
+                                </div>
+                            </div>
+                            <!-- Bio input -->
+                            <div class="flex items-center flex-row w-full gap-y-2 md:flex-col md:items-start">
+                                <label for="bio" class="w-1/5 font-hanken font-light text-black md:w-full">Bio:</label>
+                                <textarea id="bio" name="bio" class="textarea bg-bgWhite w-4/5 text-black font-hanken font-light md:w-full" placeholder="Here goes your bio..."><%= user.bio %></textarea>
+                            </div>
+                            <div class="divider"></div>
+                            <!-- Save changes button --> 
+                            <input type="submit" value="Save Changes" class="btn text-white font-hanken font-light">   
                         </form>
                         
                     
@@ -99,15 +123,21 @@
                     <!-- Bio -->
                     <section id="bio" class="pt-8 space-y-6">
                         <h1 class="text-3xl text-black font-gruppo font-bold"><%= user.fullName %></h1>
-                        <h2 class="text-black font-hanken font-light">| Fullstack Web Developer</h2>
+                        <% if (user.title) { %>
+                            <h2 class="text-black font-hanken font-light">| <%= user.title %></h2>
+                        <% } %>
                         <!-- separator -->
                         <div class="divider"></div>
-                        <p class="text-sm text-gray font-hanken font-light italic">This a very long bio for a project I haven't even started this is a long bio for a project ...</p>
+                        <% if (user.bio) { %>     
+                            <p class="text-sm text-gray font-hanken font-light italic"><%= user.bio %></p>
+                        <% } %>
                         <ul class="flex flex-col gap-y-2 gap-x-8 font-hanken text-sm font-light md:flex-row">
-                            <li class="flex gap-x-2 items-center">
-                                <i class='bx bxs-map'></i>
-                                <span>Santo Domingo, Dominican Republic</span>
-                            </li>
+                            <% if (user.country || user.city) { %>
+                                <li class="flex gap-x-2 items-center">
+                                    <i class='bx bxs-map'></i>
+                                    <span><%= user.city %>, <%= user.country%></span>
+                                </li>
+                            <% } %>
                             <li class="flex gap-x-2 items-center"> 
                                 <i class='bx bxs-envelope'></i>
                                 <a href="mailto:<%- user.email %>" class="hover:underline hover:text-grayHover"><%= user.email %></a>
@@ -179,6 +209,7 @@
    <!-- FOOTER -->
 
    <!-- dropzone and lodash -->
+    <script src="js/profile.js"></script>
     <script src="js/dropzone-min.js"></script>
     <script src="js/lodash.min.js"></script>
 </body>

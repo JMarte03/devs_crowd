@@ -8,7 +8,8 @@ const methodOverride = require("method-override"); // Using method-override
 const flash = require("express-flash"); // Using express-flash
 const logger = require("morgan"); // Using morgan
 const connectDB = require("./config/database"); // Importing db connection
-const mainRoutes = require("./routes/main"); // router on the index.html (.ejs)
+const mainRoutes = require("./routes/main"); // router on the index.ejs
+const profileRoutes = require("./routes/profile"); // router on the profile.ejs
 
 // Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -33,7 +34,7 @@ app.use(express.json());
 app.use(logger("dev"));
 
 //Use forms for put / delete
-// app.use(methodOverride("_method"));
+app.use(methodOverride("_method"));
 
 // Setup Sessions - stored in MongoDB
 app.use(
@@ -57,6 +58,7 @@ app.use(flash());
 
 // Setup Routes For Which The Server Is Listening
 app.use("/", mainRoutes);
+app.use("/profile", profileRoutes);
 // app.use('/auth', googleRoutes)
 // app.use("/post", postRoutes);
 

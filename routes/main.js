@@ -22,7 +22,6 @@ router.post('/signup', authController.postSignup)
 router.post("/login", authController.postLogin);
 
 // Other views
-router.get("/profile", ensureAuth, profileController.getMyProfile);
 router.get("/blog", ensureAuth, postsController.getBlog);
 router.get("/news", ensureAuth, newsController.getNews);
 router.get("/resources", ensureAuth, resourcesController.getResources);
